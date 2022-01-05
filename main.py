@@ -170,7 +170,8 @@ class Zlapp(Fudan):
         new_img = enh_bri.enhance(factor=1.5)
         
         image = numpy.array(new_img)
-        reader = easyocr.Reader(['en'])
+        reader = easyocr.Reader(['en'], verbose=False)
+        # verbose = false option eliminate the redundant progess line in image recoginizing process
         horizontal_list, free_list = reader.detect(image, optimal_num_chars=4)
         character = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
         allow_list = list(character)
